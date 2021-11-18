@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "zimmern-35df8": {
+      "hosting": {
+        "Zimmern": [
+          "zimmern-35df8"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "zimmern-35df8"
+  }
+}

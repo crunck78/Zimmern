@@ -1,0 +1,12 @@
+<header class="container">
+    <button type="button" mat-raised-button (click)="drawer!.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <div *ngIf="!auth.user">
+        <button mat-raised-button (click)="auth.openSignIn()">Sing In</button>
+        <button mat-raised-button (click)="auth.openSignUp()">Sing Up</button>
+    </div>
+    <div *ngIf="auth.user">
+        <button mat-raised-button (click)="auth.signOut()">Sing Out</button>
+    </div>
+</header>

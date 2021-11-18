@@ -1,0 +1,35 @@
+<form [formGroup]="setupForm" class="signin-container">
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>How much do you Earn Per Hour</mat-label>
+            <input formControlName="income" matInput type="number" required>
+            <mat-error *ngIf="setupForm.controls.income.invalid">{{msg.getErrorMessage(setupForm.controls.income)}}
+            </mat-error>
+        </mat-form-field>
+
+        <div formArrayName="rooms">
+            <div [formGroupName]="i" *ngFor="let room of getRoomsControls(); let i = index">
+                <mat-form-field appearance="fill">
+                    <mat-label>Room Type</mat-label>
+                    <input formControlName="type" matInput type="text" required>
+                    <mat-error *ngIf="room.controls.type.invalid">{{msg.getErrorMessage(room.controls.type)}}
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Room Minutes</mat-label>
+                    <input formControlName="minutes" matInput type="text" required>
+                    <mat-error *ngIf="room.controls.minutes.invalid">{{msg.getErrorMessage(room.controls.minutes)}}
+                    </mat-error>
+                </mat-form-field>
+
+                <button [disabled]="getRoomsControls().length == 1" mat-raised-button (click)="removeRoom(i)">Remove Room</button>
+            </div>
+        </div>
+    </div>
+</form>
+<div>
+    <button mat-button (click)="onNoClick()">Close</button>
+    <button [disabled]="setupForm.invalid" mat-raised-button (click)="onOkClick()" cdkFocusInitial>Ok</button>
+</div>
+<button mat-raised-button (click)="addRoom()">Add Room</button>

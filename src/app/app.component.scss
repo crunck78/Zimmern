@@ -1,0 +1,19 @@
+.drawer-container{
+    
+}
+
+.drawer-sidenav-content{
+   display: flex;
+   flex-direction: column;
+   height: 100vh;
+}
+
+.drawer-sidenav{
+    min-width: 200px;
+    box-shadow: 0px 0px 0px 0px;
+}
+
+.router-container{
+    flex-grow: 1;
+    overflow-y: auto;
+}

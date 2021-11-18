@@ -1,0 +1,16 @@
+.setup-container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+  
+  .setup-right-align {
+    text-align: right;
+  }
+  
+  input.setup-right-align::-webkit-outer-spin-button,
+  input.setup-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  input.setup-right-align {
+    -moz-appearance: textfield;
+  }

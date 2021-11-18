@@ -1,0 +1,16 @@
+.singup-container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+  
+  .singup-right-align {
+    text-align: right;
+  }
+  
+  input.singup-right-align::-webkit-outer-spin-button,
+  input.singup-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  input.singup-right-align {
+    -moz-appearance: textfield;
+  }
