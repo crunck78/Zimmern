@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { AuthService } from '../auth.service';
-import { MessaginService } from '../messagin.service';
+import { AuthService } from '../../services/auth.service';
+import { MessaginService } from '../../services/messagin.service';
+import { StoreService } from '../../services/store.service';
 
 @Component({
   selector: 'app-signup',
@@ -21,8 +22,12 @@ export class SignupComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<SignupComponent>,
     private auth: AuthService,
+    private store: StoreService,
     public msg: MessaginService
   ) { }
+
+  ngOnInit(): void {
+  }
 
   passwordConfirming(): ValidatorFn {
       return (control: AbstractControl): ValidationErrors | null => {
@@ -40,6 +45,7 @@ export class SignupComponent implements OnInit {
       this.auth.signUp(this.signupForm.value)
         .then(result => {
           console.log(result);
+          //this.store.addProfile(result);
           this.dialogRef.close(result);
         })
         .catch(error => {
@@ -48,8 +54,4 @@ export class SignupComponent implements OnInit {
         });
     }
   }
-
-  ngOnInit(): void {
-  }
-
 }

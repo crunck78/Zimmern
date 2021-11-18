@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Profile } from 'src/modules/profile.class';
-import { AuthService } from '../auth.service';
-import { SetupComponent } from '../setup/setup.component';
-import { StoreService } from '../store.service';
+import { AuthService } from '../services/auth.service';
+import { SetupComponent } from '../dialogs/setup/setup.component';
+import { StoreService } from '../services/store.service';
 
 @Component({
   selector: 'app-profile',
@@ -23,6 +23,8 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     if(!this.profile){
       this.openSetup();
+    }else{
+
     }
   }
 

@@ -1,12 +1,13 @@
 import { Injectable, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { first } from 'rxjs/operators';
+
+import firebase from 'firebase/compat/app';
+
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { SigninComponent } from './signin/signin.component';
-import { SignupComponent } from './signup/signup.component';
-import { Observable } from 'rxjs';
-import { FirebaseApp } from '@angular/fire/app';
+import { SigninComponent } from '../dialogs/signin/signin.component';
+import { SignupComponent } from '../dialogs/signup/signup.component';
+
 
 @Injectable({
   providedIn: 'root'
@@ -22,11 +23,12 @@ export class AuthService implements OnInit {
     }
   }
 
-  user: any;
+  user!: firebase.User | null;
   constructor(
     private auth: AngularFireAuth,
     private dialog: MatDialog,
     private _snackBar: MatSnackBar) { }
+
   ngOnInit(): void {
     this.auth
       .onAuthStateChanged(
@@ -39,11 +41,7 @@ export class AuthService implements OnInit {
       );
   }
 
-  // async isSignIn() {
-  //   return await this.auth.authState.pipe(first()).toPromise();
-  // }
-
-  openSignIn() {
+  openSignIn(): void {
     const dialogRef = this.dialog.open(SigninComponent);
 
     dialogRef.afterClosed().subscribe(result => {
@@ -51,11 +49,10 @@ export class AuthService implements OnInit {
         console.log('The dialog was closed', result);
         this._snackBar.open(result, "Ok");
       }
-
     });
   }
 
-  openSignUp() {
+  openSignUp(): void {
     const dialogRef = this.dialog.open(SignupComponent);
 
     dialogRef.afterClosed().subscribe(result => {
@@ -66,11 +63,11 @@ export class AuthService implements OnInit {
     });
   }
 
-  signIn(value: any): Promise<any> {
+  signIn(value: any): Promise<firebase.auth.UserCredential> {
     return this.auth.signInWithEmailAndPassword(value.email, value.psw);
   }
 
-  signUp(value: any): Promise<any> {
+  signUp(value: any): Promise<firebase.auth.UserCredential> {
     return this.auth.createUserWithEmailAndPassword(value.email, value.psw);
   }
 

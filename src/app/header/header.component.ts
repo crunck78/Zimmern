@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +17,4 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
    
   }
-
-  
-
 }

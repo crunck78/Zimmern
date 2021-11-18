@@ -5,13 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
-import { SigninComponent } from './signin/signin.component';
-import { SignupComponent } from './signup/signup.component';
+import { SigninComponent } from './dialogs/signin/signin.component';
+import { SignupComponent } from './dialogs/signup/signup.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
 import { ProfileComponent } from './profile/profile.component';
-import { SetupComponent } from './setup/setup.component';
+import { SetupComponent } from './dialogs/setup/setup.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 

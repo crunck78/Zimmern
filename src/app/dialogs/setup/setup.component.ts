@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Profile } from 'src/modules/profile.class';
-import { MessaginService } from '../messagin.service';
+import { MessaginService } from '../../services/messagin.service';
 
 @Component({
   selector: 'app-setup',

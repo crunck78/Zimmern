@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { AuthService } from '../auth.service';
-import { MessaginService } from '../messagin.service';
+import { AuthService } from '../../services/auth.service';
+import { MessaginService } from '../../services/messagin.service';
 
 @Component({
   selector: 'app-signin',
@@ -23,6 +23,8 @@ export class SigninComponent implements OnInit {
     public msg: MessaginService
   ) { }
 
+  ngOnInit(): void {}
+
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -39,9 +41,6 @@ export class SigninComponent implements OnInit {
             this.dialogRef.close(error);
           });
       }
-  }
-
-  ngOnInit(): void {
   }
 
 }
