@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthGuard } from './guards/auth.guard';
 import { LandingComponent } from './landing/landing.component';
 import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {path: "", component: LandingComponent},
-  {path: "profile", component: ProfileComponent}
+  {path: "profile", component: ProfileComponent, canActivate: [AuthGuard]},
+  {path: "dashboard", component: DashboardComponent, canActivate: [AuthGuard]}
   
 ];
 

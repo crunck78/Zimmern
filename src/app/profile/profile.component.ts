@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { Profile } from 'src/modules/profile.class';
-import { AuthService } from '../services/auth.service';
-import { SetupComponent } from '../dialogs/setup/setup.component';
+import { MessaginService } from '../services/messagin.service';
 import { StoreService } from '../services/store.service';
 
 @Component({
@@ -12,33 +10,25 @@ import { StoreService } from '../services/store.service';
 })
 export class ProfileComponent implements OnInit {
 
-  profile!: Profile;
+  profile!: Profile | undefined;
 
   constructor(
-    private dialog: MatDialog,
-    private auth: AuthService,
-    private store: StoreService
+    private _store: StoreService
   ) { }
-  
-  ngOnInit(): void {
-    if(!this.profile){
-      this.openSetup();
-    }else{
 
+  async ngOnInit(): Promise<void> {
+    const profile = await this._store.getProfile();
+    if (profile && 'setup' in profile && profile.setup) {
+      this.profile = new Profile(profile);
+    } else {
+      this.editProfile();
     }
   }
 
-  openSetup() {
-    const dialogRef = this.dialog.open(SetupComponent);
-    dialogRef.componentInstance.profile = this.profile;
-
-    dialogRef.afterClosed()
-      .subscribe((result: Profile | undefined) => {
-        if (result) {
-          this.profile = result;
-          console.log(this.profile);
-        }
-      });
+  async editProfile() {
+    const profile = await this._store.openSetup(this.profile);
+    if (profile) {
+      this.profile = profile;
+    }
   }
-
 }

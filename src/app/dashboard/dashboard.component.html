@@ -1,0 +1,17 @@
+<mat-card>
+    <mat-card-header>
+
+    </mat-card-header>
+    <mat-card-content>
+       <div *ngFor="let submitWork of submitWorks">
+           {{submitWork.author}}
+       </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <button *ngIf="profile" mat-raised-button (click)="openSubmitWork()">Add Work Day</button>
+        <button *ngIf="!profile" mat-raised-button routerLink="/profile">Add Profile</button>
+    </mat-card-actions>
+    <mat-card-footer>
+       
+    </mat-card-footer>
+</mat-card>

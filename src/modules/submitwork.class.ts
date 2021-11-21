@@ -1,0 +1,35 @@
+import { Room, RoomInterface } from "./room.class";
+
+export interface SubmitWorkInterface {
+   date : string,
+   workTime : number,
+   roomsCount : {room: RoomInterface, count : number}[],
+   author : string
+}
+
+export class SubmitWork{
+    private _date : string;
+    private _workTime : number;
+    private _roomsCount :  {room: RoomInterface, count : number}[];
+    private _author : string | null;
+    constructor(submitWork : any | SubmitWorkInterface, author : string | null){
+        this._date = submitWork ? submitWork.date : new Date();
+        this._workTime = submitWork ? submitWork.workTime : 0;
+        this._roomsCount = submitWork ? submitWork.roomsCount : [{room : new Room().toJSON(), count : 0 }];
+        this._author = author;
+    }
+
+    
+    public get author() : string | null {
+        return this._author;
+    }
+    
+    toJSON(){
+       return {
+        date : this._date,
+        workTime : this._workTime,
+        author : this._author,
+        roomsCount : this._roomsCount
+       } 
+    }
+}

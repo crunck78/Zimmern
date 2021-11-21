@@ -1,17 +1,18 @@
-<mat-card *ngIf="profile">
+<mat-card>
     <mat-card-header>
 
     </mat-card-header>
     <mat-card-content>
-        <p>Income: {{profile.income}}</p>
-        <div *ngFor="let room of profile.rooms; let i = index">
-           <p>Room Type: {{room.type}}</p>
-           <p>Room Minutes {{room.minutes}}</p>
-
+        <div *ngIf="profile">
+            <p>Income: {{profile.income}}</p>
+            <div *ngFor="let room of profile.rooms; let i = index">
+                <p>Room Type: {{room.type}}</p>
+                <p>Room Minutes {{room.minutes}}</p>
+            </div>
         </div>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-button (click)="openSetup()" >Edit Profile</button>
+        <button mat-raised-button (click)="editProfile()">Edit Profile</button>
     </mat-card-actions>
     <mat-card-footer>
 

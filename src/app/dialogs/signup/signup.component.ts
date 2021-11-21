@@ -15,43 +15,43 @@ export class SignupComponent implements OnInit {
   hide = true;
   signupForm = new FormGroup({
     email: new FormControl("", [Validators.required, Validators.email]),
-    psw: new FormControl("paswword", [Validators.required, Validators.minLength(8)]),
+    psw: new FormControl("", [Validators.required, Validators.minLength(8)]),
     confirm_psw: new FormControl("", [Validators.required])
   }, this.passwordConfirming());
 
   constructor(
     public dialogRef: MatDialogRef<SignupComponent>,
-    private auth: AuthService,
-    private store: StoreService,
+    private _auth: AuthService,
     public msg: MessaginService
   ) { }
 
   ngOnInit(): void {
+    this.signupForm.valueChanges.subscribe(() => {
+      console.log(this.signupForm.hasError('passwordNotMatching'));
+    });
   }
 
-  passwordConfirming(): ValidatorFn {
-      return (control: AbstractControl): ValidationErrors | null => {
-        const notMatching = control.get('psw')?.value !== control.get('confirm_psw')?.value;
-        return notMatching ? {passwordNotMatching: true} : null;
-      };
+  passwordConfirming(): ValidationErrors | null {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const psw = control.get('psw');
+      const confirm_psw = control.get('confirm_psw');
+      const notMatching = psw?.value !== confirm_psw?.value && psw?.dirty && confirm_psw?.dirty;
+      return notMatching ? { passwordNotMatching: true } : null;
+    };
   }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
 
-  onOkClick(): void {
+  async onOkClick(): Promise<void> {
     if (this.signupForm.valid) {
-      this.auth.signUp(this.signupForm.value)
-        .then(result => {
-          console.log(result);
-          //this.store.addProfile(result);
-          this.dialogRef.close(result);
-        })
-        .catch(error => {
-          console.error(error);
-          this.dialogRef.close(error);
-        });
+      const credentials = await this._auth.signUp(this.signupForm.value);
     }
+
+  }
+
+  async completeSingUp() {
+      return await this._auth.signUp(this.signupForm.value);
   }
 }

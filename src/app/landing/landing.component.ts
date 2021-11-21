@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-landing',
@@ -7,6 +8,6 @@ import { Component } from '@angular/core';
 })
 export class LandingComponent {
 
-  constructor() { }
+  constructor(public auth: AuthService) { }
 
 }

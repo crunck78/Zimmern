@@ -29,8 +29,12 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCardModule} from '@angular/material/card';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatSliderModule} from '@angular/material/slider';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SubmitworkComponent } from './dialogs/submitwork/submitwork.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +47,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MenuComponent,
     ProfileComponent,
     SetupComponent,
+    DashboardComponent,
+    SubmitworkComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +67,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatSnackBarModule,
     MatCardModule,
+    MatDatepickerModule,
+    MatSliderModule,
 
     ReactiveFormsModule
   ],

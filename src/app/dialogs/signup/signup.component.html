@@ -14,7 +14,8 @@
                 [attr.aria-pressed]="hide">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
-            <mat-error *ngIf="signupForm.controls.psw.invalid">{{msg.getErrorMessage(signupForm.controls.psw)}}</mat-error>
+            <mat-error *ngIf="signupForm.controls.psw.invalid">{{msg.getErrorMessage(signupForm.controls.psw)}}
+            </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
@@ -26,10 +27,9 @@
             </button>
             <mat-error *ngIf="signupForm.controls.confirm_psw.invalid">
                 {{msg.getErrorMessage(signupForm.controls.confirm_psw)}}</mat-error>
-            <mat-error *ngIf="signupForm.hasError('passwordNotMatching')">{{"Confirmation must Match!"}}</mat-error>
         </mat-form-field>
     </div>
-
+    <mat-error *ngIf="signupForm.hasError('passwordNotMatching')">{{"Confirmation must Match!"}}</mat-error>
     <div>
         <button mat-button (click)="onNoClick()">No Thanks</button>
         <button [disabled]="signupForm.invalid" mat-raised-button (click)="onOkClick()" cdkFocusInitial>Ok</button>

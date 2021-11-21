@@ -1,7 +1,7 @@
 <form [formGroup]="setupForm" class="signin-container">
     <div>
         <mat-form-field appearance="fill">
-            <mat-label>How much do you Earn Per Hour</mat-label>
+            <mat-label>How much is Your Income</mat-label>
             <input formControlName="income" matInput type="number" required>
             <mat-error *ngIf="setupForm.controls.income.invalid">{{msg.getErrorMessage(setupForm.controls.income)}}
             </mat-error>
