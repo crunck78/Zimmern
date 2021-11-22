@@ -9,7 +9,7 @@ export  class Room implements RoomInterface{
 
     constructor(room? : RoomInterface){
       this._type = room ? room.type : "";
-      this._minutes = room ? room.minutes : 0;
+      this._minutes = room ? room.minutes : 0 ;
     }
 
     public get type() : string {

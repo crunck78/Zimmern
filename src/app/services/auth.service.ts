@@ -50,7 +50,7 @@ export class AuthService implements OnInit {
     const dialogRef = this.dialog.open(SigninComponent);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-
+        this._msg.show('Welcome Back!');
       }
     });
   }
@@ -59,7 +59,7 @@ export class AuthService implements OnInit {
     const dialogRef = this.dialog.open(SignupComponent);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this._msg.show('AUTH_SERVICE::SIGNUP_CLOSE::' + result);
+        this._msg.show('Welcome!');
       }
     });
   }
@@ -75,10 +75,10 @@ export class AuthService implements OnInit {
   signOut(): void {
     this._auth.signOut()
       .then(() => {
-        
+        this._msg.show('Have a nice Day!');
       })
       .catch((error) => {
-        
+        this._msg.show(error.message);
       });
   }
 

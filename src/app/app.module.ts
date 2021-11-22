@@ -31,10 +31,12 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCardModule} from '@angular/material/card';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSliderModule} from '@angular/material/slider';
+import { MatPasswordStrengthModule } from '@angular-material-extensions/password-strength';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SubmitworkComponent } from './dialogs/submitwork/submitwork.component';
+
 
 @NgModule({
   declarations: [
@@ -69,8 +71,11 @@ import { SubmitworkComponent } from './dialogs/submitwork/submitwork.component';
     MatCardModule,
     MatDatepickerModule,
     MatSliderModule,
+    MatPasswordStrengthModule.forRoot(),
 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
+    MatPasswordStrengthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

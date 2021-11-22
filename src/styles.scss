@@ -6,3 +6,30 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .container{
     padding: 20px;
 }
+
+.d-flex--justify_between{
+    display: flex;
+    justify-content: space-between;
+}
+
+.mat-dialog-container{
+    max-height: 100vh !important;
+    overflow-y: auto !important;
+
+    //max-width: calc(100vw - 32px) !important; // 32px medium 
+}
+
+.mtb--small{
+    margin: 16px 0;
+}
+
+.ml--small_important{
+    margin-left: 16px !important;
+}
+
+fieldset{
+    border-radius: 4px;
+    legend{
+        font-size: 20px;
+    }
+}

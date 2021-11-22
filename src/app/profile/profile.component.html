@@ -4,11 +4,12 @@
     </mat-card-header>
     <mat-card-content>
         <div *ngIf="profile">
-            <p>Income: {{profile.income}}</p>
-            <div *ngFor="let room of profile.rooms; let i = index">
-                <p>Room Type: {{room.type}}</p>
-                <p>Room Minutes {{room.minutes}}</p>
-            </div>
+            <p><b>Income per hour</b> : {{profile.income}} €</p>
+            <fieldset *ngFor="let room of profile.rooms; let i = index">
+                <legend>Room</legend>
+                <p><b>Description</b> : {{room.type}}</p>
+                <p><b>Time to finish</b> : {{room.minutes}} minutes</p>
+            </fieldset>
         </div>
     </mat-card-content>
     <mat-card-actions>

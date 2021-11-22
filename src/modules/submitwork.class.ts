@@ -19,6 +19,26 @@ export class SubmitWork{
         this._author = author;
     }
 
+    public getAllocWorkTime() : number{
+        const roomsWorkTime = this._roomsCount.map( (rc : {room: RoomInterface, count : number}) => rc.room.minutes * rc.count );
+        const sum = roomsWorkTime.reduce( (a : number, b : number) => a + b, 0);
+        return sum;
+    }
+
+    
+    public get workTime() : number {
+        return this._workTime;
+    }
+    
+    
+    public get roomsCount() : {room : RoomInterface, count : number }[] {
+        return this._roomsCount;
+    }
+    
+    public get date() : string {
+        return this._date;
+    }
+    
     
     public get author() : string | null {
         return this._author;

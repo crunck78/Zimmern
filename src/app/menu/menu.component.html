@@ -1,5 +1,5 @@
-<menu class="container">
-    <a mat-raised-button routerLink="/">Home</a>
+<div class="container">
+    <button mat-raised-button routerLink="/">Home</button>
     <a *ngIf="auth.user" mat-raised-button routerLink="/profile">Profile</a>
     <a *ngIf="auth.user" mat-raised-button routerLink="/dashboard">Dashboard</a>
-</menu>
+</div>

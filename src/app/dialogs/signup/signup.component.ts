@@ -15,9 +15,9 @@ export class SignupComponent implements OnInit {
   hide = true;
   signupForm = new FormGroup({
     email: new FormControl("", [Validators.required, Validators.email]),
-    psw: new FormControl("", [Validators.required, Validators.minLength(8)]),
-    confirm_psw: new FormControl("", [Validators.required])
-  }, this.passwordConfirming());
+    confirm_psw: new FormControl("", [Validators.required, this.passwordNotmatching()]),
+    psw: new FormControl("", [Validators.required, Validators.minLength(8) ]),
+  });
 
   constructor(
     public dialogRef: MatDialogRef<SignupComponent>,
@@ -26,16 +26,13 @@ export class SignupComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.signupForm.valueChanges.subscribe(() => {
-      console.log(this.signupForm.hasError('passwordNotMatching'));
-    });
+
   }
 
-  passwordConfirming(): ValidationErrors | null {
+  passwordNotmatching(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
-      const psw = control.get('psw');
-      const confirm_psw = control.get('confirm_psw');
-      const notMatching = psw?.value !== confirm_psw?.value && psw?.dirty && confirm_psw?.dirty;
+      const psw = control.parent?.get('psw');
+      const notMatching = psw?.value !== control?.value && psw?.dirty && control?.dirty;
       return notMatching ? { passwordNotMatching: true } : null;
     };
   }
@@ -46,12 +43,14 @@ export class SignupComponent implements OnInit {
 
   async onOkClick(): Promise<void> {
     if (this.signupForm.valid) {
-      const credentials = await this._auth.signUp(this.signupForm.value);
+      try {
+        const credentials = await this._auth.signUp(this.signupForm.value);
+        this.dialogRef.close(credentials);
+      } catch (error : any) {
+        if(error.code === 'auth/email-already-in-use') this.msg.show('Email already in Use!');
+        else this.msg.show(error.message);
+      }
     }
 
-  }
-
-  async completeSingUp() {
-      return await this._auth.signUp(this.signupForm.value);
   }
 }

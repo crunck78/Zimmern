@@ -1,6 +1,6 @@
-.setup-container .mat-form-field + .mat-form-field {
-    margin-left: 8px;
-  }
+// .setup-container .mat-form-field + .mat-form-field {
+//     margin-left: 8px;
+//   }
   
   .setup-right-align {
     text-align: right;
@@ -13,4 +13,10 @@
   
   input.setup-right-align {
     -moz-appearance: textfield;
+  }
+
+  .rooms{
+    display: flex;
+    max-width: 100%;
+    overflow-x: auto;
   }

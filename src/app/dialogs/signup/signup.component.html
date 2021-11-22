@@ -1,36 +1,50 @@
 <form [formGroup]="signupForm" class="signin-container">
     <div>
-        <mat-form-field appearance="fill">
-            <mat-label>Enter your Email</mat-label>
-            <input formControlName="email" matInput type="email" required>
-            <mat-error *ngIf="signupForm.controls.email.invalid">{{msg.getErrorMessage(signupForm.controls.email)}}
-            </mat-error>
-        </mat-form-field>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Enter your Email</mat-label>
+                <input formControlName="email" matInput type="email" required>
+                <mat-error *ngIf="signupForm.controls.email.invalid">{{msg.getErrorMessage(signupForm.controls.email)}}
+                </mat-error>
+            </mat-form-field>
+        </div>
 
-        <mat-form-field appearance="fill">
-            <mat-label>Enter your password</mat-label>
-            <input formControlName="psw" matInput [type]="hide ? 'password' : 'text'" required>
-            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                [attr.aria-pressed]="hide">
-                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
-            <mat-error *ngIf="signupForm.controls.psw.invalid">{{msg.getErrorMessage(signupForm.controls.psw)}}
-            </mat-error>
-        </mat-form-field>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Enter your password</mat-label>
+                <input #psw formControlName="psw" matInput [type]="hide ? 'password' : 'text'" required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                
+                <mat-error *ngIf="signupForm.controls.psw.invalid">{{msg.getErrorMessage(signupForm.controls.psw)}}
+                </mat-error>
+            </mat-form-field>
+            <!-- <mat-hint align="end" aria-live="polite">
+                {{psw.value.length}} / {{passwordComponent.max}}
+              </mat-hint>
+            <mat-password-strength [max]="8" #passwordComponent
+                [password]="psw.value">
+            </mat-password-strength> -->
+        </div>
 
-        <mat-form-field appearance="fill">
-            <mat-label>Confirm your password</mat-label>
-            <input formControlName="confirm_psw" matInput [type]="hide ? 'password' : 'text'" required>
-            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                [attr.aria-pressed]="hide">
-                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
-            <mat-error *ngIf="signupForm.controls.confirm_psw.invalid">
-                {{msg.getErrorMessage(signupForm.controls.confirm_psw)}}</mat-error>
-        </mat-form-field>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Confirm your password</mat-label>
+                <input formControlName="confirm_psw" matInput [type]="hide ? 'password' : 'text'" required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="signupForm.controls.confirm_psw.invalid">
+                    {{msg.getErrorMessage(signupForm.controls.confirm_psw)}}</mat-error>
+            </mat-form-field>
+        </div>
+        <!-- <mat-error *ngIf="signupForm.hasError('passwordNotMatching')">{{"Password not the same"}}</mat-error> -->
     </div>
-    <mat-error *ngIf="signupForm.hasError('passwordNotMatching')">{{"Confirmation must Match!"}}</mat-error>
-    <div>
+
+    <div class="d-flex--justify_between">
         <button mat-button (click)="onNoClick()">No Thanks</button>
         <button [disabled]="signupForm.invalid" mat-raised-button (click)="onOkClick()" cdkFocusInitial>Ok</button>
     </div>

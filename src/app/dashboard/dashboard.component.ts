@@ -30,4 +30,11 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  getAllocWorkTime(sw : SubmitWork){
+    const allocTime = sw.getAllocWorkTime();
+    const hh = Math.round( allocTime / 60);
+    const rest = allocTime % 60;
+    return rest > 0 ? `${hh} hourse and ${rest} minutes` : `${hh} hourse`;
+  }
+
 }

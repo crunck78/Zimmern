@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatDrawer } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Zimmern';
+
   constructor(
     
    ){}
@@ -14,5 +16,9 @@ export class AppComponent {
 
   ngOnInit(): void {
     
+  }
+
+  updateDrawerMode( drawer : MatDrawer){
+    drawer.mode = window.innerWidth > 900 ? 'side' : 'over';
   }
 }

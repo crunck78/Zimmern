@@ -20,9 +20,12 @@ export class MessaginService {
     if (control.hasError('email')) {
       return "Input is not a Valid Email Address!";
     }
-    if (control.hasError('minLength')) {
-      return "Input must be at least " + 8 + " Characters long!";
+    if (control.hasError('minlength')) {
+      return "Enter at least " + 8 + " characters";
     }
-    return "ERROR!!!";
+    if (control.hasError('passwordNotMatching')){
+      return "Password not matching!";
+    }
+      return "ERROR!!!";
   }
 }

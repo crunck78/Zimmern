@@ -1,24 +1,32 @@
 <form [formGroup]="signinForm" class="signin-container">
     <div>
-        <mat-form-field appearance="fill">
-            <mat-label>Enter your Email</mat-label>
-            <input formControlName="email" matInput type="email" required>
-            <mat-error *ngIf="signinForm.controls.email.invalid">{{msg.getErrorMessage(signinForm.controls.email)}}</mat-error>
-        </mat-form-field>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Enter your Email</mat-label>
+                <input formControlName="email" matInput type="email" required>
+                <mat-error *ngIf="signinForm.controls.email.invalid">{{msg.getErrorMessage(signinForm.controls.email)}}
+                </mat-error>
+            </mat-form-field>
+        </div>
 
-        <mat-form-field appearance="fill">
-            <mat-label>Enter your password</mat-label>
-            <input formControlName="psw" matInput [type]="hide ? 'password' : 'text'" required>
-            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                [attr.aria-pressed]="hide">
-                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
-            <mat-error *ngIf="signinForm.controls.psw.invalid">{{msg.getErrorMessage(signinForm.controls.psw)}}</mat-error>
-        </mat-form-field>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Enter your password</mat-label>
+                <input formControlName="psw" matInput [type]="hide ? 'password' : 'text'" required minlength="8">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+
+                <mat-error *ngIf="signinForm.controls.psw.invalid">{{msg.getErrorMessage(signinForm.controls.psw)}}
+                </mat-error>
+            </mat-form-field>
+        </div>
     </div>
 
-    <div>
+    <div class="d-flex--justify_between">
         <button mat-button (click)="onNoClick()">No Thanks</button>
         <button [disabled]="signinForm.invalid" mat-raised-button (click)="onOkClick()" cdkFocusInitial>Ok</button>
     </div>
+    <button *ngIf="false" mat-raised-button>Forgot your Password?</button>
 </form>
