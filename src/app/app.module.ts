@@ -36,6 +36,7 @@ import { MatPasswordStrengthModule } from '@angular-material-extensions/password
 import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SubmitworkComponent } from './dialogs/submitwork/submitwork.component';
+import { ImprintComponent } from './imprint/imprint.component';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { SubmitworkComponent } from './dialogs/submitwork/submitwork.component';
     SetupComponent,
     DashboardComponent,
     SubmitworkComponent,
+    ImprintComponent,
   ],
   imports: [
     BrowserModule,
