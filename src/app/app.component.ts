@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
 
 @Component({
@@ -6,19 +6,20 @@ import { MatDrawer } from '@angular/material/sidenav';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent{
   title = 'Zimmern';
 
+  @ViewChild('drawer') drawer!: MatDrawer;
+
   constructor(
-    
-   ){}
 
+  ) { }
 
-  ngOnInit(): void {
-    
+  updateDrawerMode(drawer : MatDrawer) {
+    drawer.mode = this.getDrawerMode();
   }
 
-  updateDrawerMode( drawer : MatDrawer){
-    drawer.mode = window.innerWidth > 900 ? 'side' : 'over';
+  getDrawerMode(){
+    return window.innerWidth > 900 ? 'side' : 'over';
   }
 }

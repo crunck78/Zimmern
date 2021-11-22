@@ -1,6 +1,6 @@
 <mat-drawer-container class="drawer-container" autosize>
 
-  <mat-drawer (window:resize)="updateDrawerMode(drawer)" #drawer class="drawer-sidenav">
+  <mat-drawer [mode]="getDrawerMode()" (window:resize)="updateDrawerMode(drawer)" #drawer class="drawer-sidenav">
     <app-menu></app-menu>
   </mat-drawer>
 
