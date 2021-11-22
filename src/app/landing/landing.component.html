@@ -1,9 +1,13 @@
 <mat-card>
     <mat-card-header>
-
+        <div *ngIf="!auth.user">
+           <p>You are currently not signed in.</p>
+           <p>Press <button mat-raised-button (click)="auth.openSignIn()">Sign In</button> to procced with authentication.</p>
+           <p>Press <button mat-raised-button (click)="auth.openSignUp()">Sign Up</button> to proccesd with registration.</p>
+        </div>
     </mat-card-header>
     <mat-card-content>
-        <p>{{auth.user?.email}}</p>
+        
     </mat-card-content>
     <mat-card-actions>
 

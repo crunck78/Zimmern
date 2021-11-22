@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Profile } from 'src/modules/profile.class';
 import { SubmitWork } from 'src/modules/submitwork.class';
+import { AuthService } from '../services/auth.service';
 import { StoreService } from '../services/store.service';
 
 @Component({
@@ -13,7 +14,10 @@ export class DashboardComponent implements OnInit {
   profile!: Profile;
   submitWorks!: SubmitWork[];
 
-  constructor(private _store: StoreService) { }
+  constructor(
+    private _store: StoreService,
+    public auth: AuthService
+    ) { }
 
   async ngOnInit(): Promise<void> {
     const profile = await this._store.getProfile();

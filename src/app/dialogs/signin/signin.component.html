@@ -1,8 +1,9 @@
+<p>Sign In</p>
 <form [formGroup]="signinForm" class="signin-container">
     <div>
         <div>
             <mat-form-field appearance="fill">
-                <mat-label>Enter your Email</mat-label>
+                <mat-label>Enter your email</mat-label>
                 <input formControlName="email" matInput type="email" required>
                 <mat-error *ngIf="signinForm.controls.email.invalid">{{msg.getErrorMessage(signinForm.controls.email)}}
                 </mat-error>

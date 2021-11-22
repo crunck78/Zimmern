@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -6,8 +6,15 @@ import { AuthService } from '../services/auth.service';
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss']
 })
-export class LandingComponent {
+export class LandingComponent implements OnInit {
 
   constructor(public auth: AuthService) { }
+  ngOnInit(): void {
+    if(!this.auth.user){
+      this.auth.openSignIn();
+    }
+  }
+
+
 
 }
