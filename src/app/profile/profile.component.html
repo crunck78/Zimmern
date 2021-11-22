@@ -11,6 +11,9 @@
                 <p><b>Time to finish</b> : {{room.minutes}} minutes</p>
             </fieldset>
         </div>
+        <div *ngIf="!profile">
+            <p>Press Edit Profile to Create one</p>
+        </div>
     </mat-card-content>
     <mat-card-actions>
         <button mat-raised-button (click)="editProfile()">Edit Profile</button>
