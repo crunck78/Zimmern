@@ -10,11 +10,6 @@ export class LandingComponent implements OnInit {
 
   constructor(public auth: AuthService) { }
   ngOnInit(): void {
-    if(!this.auth.user){
-      this.auth.openSignIn();
-    }
+
   }
-
-
-
 }

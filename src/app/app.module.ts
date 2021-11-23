@@ -21,7 +21,7 @@ import { ImprintComponent } from './imprint/imprint.component';
 import { environment } from '../environments/environment';
 
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 import { MatSidenavModule } from '@angular/material/sidenav';

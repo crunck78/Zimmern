@@ -1,0 +1,16 @@
+{
+    "GENERAL": {
+        "AND": "si"
+    },
+    "DASHBOARD": {
+        "PHYSICAL_WORKED_TIME": "Munca depusa fizic",
+        "HOURS": "ore",
+        "TIMES": "ori",
+        "MINUTES" : "minut(e)",
+        "ROOMS_BASED_WORKED_TIME": "Munca depusa bazata pe camere",
+        "ADD_WORK_DAY": "Inregistreaza zi de munca",
+        "ADD_PROFILE": "Adauga un Profil",
+        "CALC_WORKED_HOURS" : "{{hours}} ore(a)",
+        "CALC_WORKED_MINUTES" : "{{minutes}} minut(e)"
+    }
+}

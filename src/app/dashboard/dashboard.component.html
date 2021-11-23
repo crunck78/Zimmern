@@ -4,19 +4,36 @@
     </mat-card-header>
     <mat-card-content>
         <div *ngFor="let submitWork of submitWorks">
-           <fieldset>
-               <legend> {{submitWork.date}} </legend>
-               <div><b>Worked time</b> : {{submitWork.workTime}} hours</div>
-               <div *ngFor="let roomCount of submitWork.roomsCount">
-                    <b>{{roomCount.room.type}}</b> : {{roomCount.count}} times
-               </div>
-               <div><b>Allocated Worked time</b> : {{getAllocWorkTime(submitWork)}}</div>
-           </fieldset>
+            <fieldset>
+                <legend> {{submitWork.date}} </legend>
+                <div><b>{{'DASHBOARD.PHYSICAL_WORKED_TIME' | translate}}</b> : {{submitWork.workTime}}
+                    {{'DASHBOARD.HOURS' | translate}}</div>
+                <div *ngFor="let roomCount of submitWork.roomsCount">
+                    <b>{{roomCount.room.type}}</b> : {{roomCount.count}} {{'DASHBOARD.TIMES' |
+                    translate}}&nbsp;{{roomCount.room.minutes}}&nbsp;{{'DASHBOARD.MINUTES' |
+                    translate}}&nbsp;=>&nbsp;{{roomCount.room.minutes * roomCount.count}}&nbsp;{{'DASHBOARD.MINUTES' |
+                    translate}}
+                </div>
+                <div>
+                    <b>{{'DASHBOARD.ROOMS_BASED_WORKED_TIME' | translate}}</b>
+                    :
+                    <span [translate]="'DASHBOARD.CALC_WORKED_HOURS'"
+                        [translateParams]="{hours: getRoomsBasedWorkedHours(submitWork)}"></span>
+
+                    <span *ngIf="getRoomsBasedWorkedRest(submitWork) > 0">
+                        {{'GENERAL.AND' | translate}}
+                        <span
+                            [innerHTML]="'DASHBOARD.CALC_WORKED_MINUTES' | translate:{ minutes : getRoomsBasedWorkedRest(submitWork)}"></span>
+                    </span>
+                </div>
+            </fieldset>
         </div>
     </mat-card-content>
     <mat-card-actions>
-        <button *ngIf="profile" mat-raised-button (click)="openSubmitWork()">Add work day</button>
-        <button *ngIf="!profile" mat-raised-button routerLink="/profile">Add Profile</button>
+        <button *ngIf="profile" mat-raised-button (click)="openSubmitWork()">{{'DASHBOARD.ADD_WORK_DAY' |
+            translate}}</button>
+        <button *ngIf="!profile" mat-raised-button routerLink="/profile">{{'DASHBOARD.ADD_PROFILE' |
+            translate}}</button>
     </mat-card-actions>
     <mat-card-footer>
 

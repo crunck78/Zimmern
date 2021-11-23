@@ -36,6 +36,7 @@ export class AuthService implements OnInit {
           this.user = result; 
           if(!this.user){
             this._nav.to('');
+            this.openSignIn();
           }
         },
         (error) => { this._msg.show('AUTH_SERVICE::STATE_CHANGE::ERROR::' + error); }

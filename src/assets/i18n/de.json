@@ -1,0 +1,16 @@
+{
+    "GENERAL": {
+        "AND": "und"
+    },
+    "DASHBOARD": {
+        "PHYSICAL_WORKED_TIME": "Körperliche Arbeit geleistet",
+        "HOURS": "Stunde(n)",
+        "TIMES": "mal",
+        "MINUTES" : "Minute(n)",
+        "ROOMS_BASED_WORKED_TIME": "Zimmerbezogene Arbeitszeit",
+        "ADD_WORK_DAY": "Arbeitstag hinzufügen",
+        "ADD_PROFILE": "Profil hinzufügen",
+        "CALC_WORKED_HOURS" : "{{hours}} Stunde(n)",
+        "CALC_WORKED_MINUTES" : "{{minutes}} Minute(n)"
+    }
+}

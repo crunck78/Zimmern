@@ -1,0 +1,16 @@
+{
+    "GENERAL": {
+        "AND": "and"
+    },
+    "DASHBOARD": {
+        "PHYSICAL_WORKED_TIME": "Physical worked time",
+        "HOURS": "hour(s)",
+        "TIMES": "time(s)",
+        "MINUTES" : "minutes",
+        "ROOMS_BASED_WORKED_TIME": "Rooms based worked time",
+        "ADD_WORK_DAY": "Add work day",
+        "ADD_PROFILE": "Add Profile",
+        "CALC_WORKED_HOURS" : "{{hours}} hour(s)",
+        "CALC_WORKED_MINUTES" : "{{minutes}} minute(s)"
+    }
+}
