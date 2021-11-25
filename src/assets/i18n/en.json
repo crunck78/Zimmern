@@ -1,16 +1,35 @@
 {
-    "GENERAL": {
-        "AND": "and"
-    },
-    "DASHBOARD": {
-        "PHYSICAL_WORKED_TIME": "Physical worked time",
-        "HOURS": "hour(s)",
-        "TIMES": "time(s)",
-        "MINUTES" : "minutes",
-        "ROOMS_BASED_WORKED_TIME": "Rooms based worked time",
-        "ADD_WORK_DAY": "Add work day",
-        "ADD_PROFILE": "Add Profile",
-        "CALC_WORKED_HOURS" : "{{hours}} hour(s)",
-        "CALC_WORKED_MINUTES" : "{{minutes}} minute(s)"
-    }
+	"GENERAL": {
+		"AND": "and",
+		"DESCRIPTION": {
+			"pl": "descriptions",
+			"sg": "description"
+		},
+		"ROOM": {
+			"pl": "rooms",
+			"sg": "room"
+		},
+		"HOUR": {
+			"pl": "hours",
+			"sg": "hour"
+		},
+		"MINUTE":{
+			"pl": "minutes",
+			"sg": "minute"
+		},
+		"CLOSE" : "Close"
+	},
+	"DASHBOARD": {
+		"ADD_PROFILE": "add profile",
+		"ADD_WORK_DAY": "add work day",
+		"PHYSICAL_WORKED_TIME": "physical worked time",
+		"ROOMS_BASED_WORKED_TIME": "rooms based worked time",
+		"TIMES": "times"
+	},
+	"SETUP": {
+		"INCOME": "your income per hour",
+		"ROOM_TIME" : "minutes per room",
+		"REMOVE_ROOM" : "Remove Room",
+		"ADD_ROOM":"Add Room"
+	}
 }

@@ -29,10 +29,10 @@ export class Profile {
         return this._setup;
     }
 
-    public set setup(v : boolean) {
+    public set setup(v: boolean) {
         this._setup = v;
     }
-    
+
     public get income(): number {
         return this._income;
     }

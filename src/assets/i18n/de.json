@@ -1,16 +1,35 @@
 {
-    "GENERAL": {
-        "AND": "und"
-    },
-    "DASHBOARD": {
-        "PHYSICAL_WORKED_TIME": "Körperliche Arbeit geleistet",
-        "HOURS": "Stunde(n)",
-        "TIMES": "mal",
-        "MINUTES" : "Minute(n)",
-        "ROOMS_BASED_WORKED_TIME": "Zimmerbezogene Arbeitszeit",
-        "ADD_WORK_DAY": "Arbeitstag hinzufügen",
-        "ADD_PROFILE": "Profil hinzufügen",
-        "CALC_WORKED_HOURS" : "{{hours}} Stunde(n)",
-        "CALC_WORKED_MINUTES" : "{{minutes}} Minute(n)"
-    }
+	"GENERAL": {
+		"AND": "und",
+		"DESCRIPTION": {
+			"pl": "Beschreibungen",
+			"sg": "Beschreibung"
+		},
+		"ROOM": {
+			"pl": "Zimmern",
+			"sg": "Zimmer"
+		},
+		"HOUR": {
+			"pl": "Stunden",
+			"sg": "Stunde"
+		},
+		"MINUTE":{
+			"pl": "Minuten",
+			"sg": "Minute"
+		},
+		"CLOSE" : "Schließen"
+	},
+	"DASHBOARD": {
+		"ADD_PROFILE": "Profil hinzufügen",
+		"ADD_WORK_DAY": "Arbeitstag hinzufügen",
+		"PHYSICAL_WORKED_TIME": "Körperliche Arbeit geleistet",
+		"ROOMS_BASED_WORKED_TIME": "Zimmer bezogene Arbeitszeit",
+		"TIMES": "mal"
+	},
+	"SETUP": {
+		"INCOME": "dein Einkommen pro Stunde",
+		"ROOM_TIME" : "Minuten pro Zimmer",
+		"REMOVE_ROOM" : "Zimmer löschen",
+		"ADD_ROOM":"Zimmer hinzufügen"
+	}
 }

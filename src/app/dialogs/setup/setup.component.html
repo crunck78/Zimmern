@@ -2,7 +2,7 @@
     <div>
         <div>
             <mat-form-field appearance="fill">
-                <mat-label>Your income per hour</mat-label>
+                <mat-label>{{'SETUP.INCOME' | translate}}</mat-label>
                 <input formControlName="income" matInput type="number" required>
                 <mat-error *ngIf="setupForm.controls.income.invalid">{{msg.getErrorMessage(setupForm.controls.income)}}
                 </mat-error>
@@ -11,10 +11,10 @@
 
         <div class="rooms" formArrayName="rooms">
             <fieldset [formGroupName]="i" *ngFor="let room of getRoomsControls(); let i = index">
-                <legend>Room</legend>
+                <legend>{{'GENERAL.ROOM.sg' | translate | uppercase}}</legend>
                 <div>
                     <mat-form-field appearance="fill">
-                        <mat-label>Description</mat-label>
+                        <mat-label>{{'GENERAL.DESCRIPTION.sg' | translate | titlecase}}</mat-label>
                         <input formControlName="type" matInput type="text" required>
                         <mat-error *ngIf="room.controls.type.invalid">{{msg.getErrorMessage(room.controls.type)}}
                         </mat-error>
@@ -23,22 +23,23 @@
 
                 <div>
                     <mat-form-field appearance="fill">
-                        <mat-label>Minutes to finish</mat-label>
+                        <mat-label>{{'SETUP.ROOM_TIME' | translate | titlecase}}</mat-label>
                         <input formControlName="minutes" matInput type="number" required>
                         <mat-error *ngIf="room.controls.minutes.invalid">{{msg.getErrorMessage(room.controls.minutes)}}
                         </mat-error>
                     </mat-form-field>
                 </div>
 
-                <button [disabled]="getRoomsControls().length == 1" mat-raised-button (click)="removeRoom(i)">Remove Room</button>
+                <button [disabled]="getRoomsControls().length == 1" mat-raised-button
+                    (click)="removeRoom(i)">{{'SETUP.REMOVE_ROOM' | translate}}</button>
             </fieldset>
         </div>
     </div>
 </form>
 <div class="d-flex--justify_between mtb--small">
-    <button mat-button (click)="onNoClick()">Close</button>
+    <button mat-button (click)="onNoClick()">{{'GENERAL.CLOSE' | translate}}</button>
     <button [disabled]="setupForm.invalid" mat-raised-button (click)="onOkClick()" cdkFocusInitial>Ok</button>
 </div>
 <div>
-    <button mat-raised-button (click)="addRoom()">Add Room</button>
+    <button mat-raised-button (click)="addRoom()">{{'SETUP.ADD_ROOM' | translate}}</button>
 </div>

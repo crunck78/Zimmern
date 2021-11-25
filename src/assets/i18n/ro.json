@@ -1,16 +1,35 @@
 {
-    "GENERAL": {
-        "AND": "si"
-    },
-    "DASHBOARD": {
-        "PHYSICAL_WORKED_TIME": "Munca depusa fizic",
-        "HOURS": "ore",
-        "TIMES": "ori",
-        "MINUTES" : "minut(e)",
-        "ROOMS_BASED_WORKED_TIME": "Munca depusa bazata pe camere",
-        "ADD_WORK_DAY": "Inregistreaza zi de munca",
-        "ADD_PROFILE": "Adauga un Profil",
-        "CALC_WORKED_HOURS" : "{{hours}} ore(a)",
-        "CALC_WORKED_MINUTES" : "{{minutes}} minut(e)"
-    }
+	"GENERAL": {
+		"AND": "și",
+		"DESCRIPTION": {
+			"pl": "descrieri",
+			"sg": "descriere"
+		},
+		"ROOM": {
+			"pl": "camere",
+			"sg": "cameră"
+		},
+		"HOUR": {
+			"pl": "ore",
+			"sg": "oră"
+		},
+		"MINUTE":{
+			"pl": "minute",
+			"sg": "minut"
+		},
+		"CLOSE" : "Inchideți"
+	},
+	"DASHBOARD": {
+		"ADD_PROFILE": "Adăugați profil",
+		"ADD_WORK_DAY": "Adăugați ziua de lucru",
+		"PHYSICAL_WORKED_TIME": "Muncă depusă fizic",
+		"ROOMS_BASED_WORKED_TIME": "Muncă depusă bazată pe camere",
+		"TIMES": "ori"
+	},
+	"SETUP": {
+		"INCOME": "Venitul dvs. pe oră",
+		"ROOM_TIME" : "Minute pe cameră",
+		"REMOVE_ROOM" : "Stergeti Camera",
+		"ADD_ROOM":"Adăugați cameră"
+	}
 }
